@@ -1,6 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;
+using std::getline;
 
 /*
 typedef std::vector<std::pair<std::string,int>> pairlist_t;
@@ -19,6 +24,118 @@ namespace sigma{
 
 int main()
 {
+    /*break loop
+    for(int i = 1; i < 10; i++){
+        cout << i;
+        if(i == 5){
+            break;
+        }
+    }
+    */
+
+    /*for loops
+    string name = "sigma";
+    for(int i = 0; i < name.size(); i++){
+        cout << name[i] << endl;
+    }
+    */
+
+    /*do while(ASSSSS never use this!!!!!!!!!!!)
+    int num;
+
+    do{
+        cout << "enter positive num: ";
+        cin >> num;
+    }while(num<=0);
+    cout << "good";
+    */
+
+    /*string methods
+    string name;
+
+    cout << "name? ";
+    getline(cin, name);
+    //name.clear();
+    //name.append("@mail.com");
+    //cout << name.at(0);
+    //cout << name.insert(0, "sir cornelius ");
+    //cout << name.find('s');
+    cout << name.erase(0, 5);
+    */
+
+    /*
+    if(name.length() > 12) {
+        cout << "too longgggg";
+    } else {
+        cout << "not too long";
+    }
+    */
+
+    /*
+    if (name.empty()) {
+        cout << "empty";
+    } else {
+        cout << "not empty";
+    }
+    */
+
+    /*temp conversion
+    double temp;
+    char unit;
+
+
+    cout << "enter unit: ";
+    cin >> unit;
+    cout << "enter temp: ";
+    cin >> temp;
+
+    if (unit == 'c') {
+        cout << (temp > 0 && temp < 30 ? "normal" : "not normal");
+    } else if (unit == 'f') {
+        cout << (temp > 32 && temp < 86 ? "normal" : "not normal");
+    } else {
+        cout << "invalid unit";
+    }
+    */
+
+    /*logical operators: && || !
+    int temp;
+    bool sunny = false;
+    int num = 6;
+
+    cout << "enter temp: ";
+    cin >> temp;
+
+    if (temp > 0 && temp < 10) {
+        cout << "temp = cold\n";
+    } else  {
+        cout << "sigma\n";
+    }
+
+    if (!sunny) {
+        cout << "sunny\n";
+    } else {
+        cout << "not sunny\n";
+    }
+
+    if (num == 5 || num == 6) {
+        cout << "num is 5 or 6";
+    } else {
+        cout << "num is not 5 or 6";
+    }
+    */
+
+    /*ternary operators
+    int grade = 75;
+
+    grade < 100 ? cout << "not 100" << endl : cout << "100" << endl;
+
+    int number = 10;
+
+    number == 10 ? cout << "this number is 10" << endl : cout << "this number is not 10" << endl;
+
+    cout << (number  ==  10 ? "is 10" : "is not 10");
+    */
 
     /*grade judging
     char grade;
@@ -49,7 +166,7 @@ int main()
             break;
     }
     */
-
+    
     /*pythagorean theorem
     int a;
     int b;
