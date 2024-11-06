@@ -22,8 +22,64 @@ namespace sigma{
     }
     */
 
+//void sigma(int num);
+
+//double square(double len);
+//double cube(double len);
+
+//string mergeStrings(string x, string y);
+
+void bakeSigma();
+
 int main()
 {
+    //overloaded functions
+    bakeSigma();
+    
+    /*return keywords
+    string NameFirst = "sigma";
+    string NameLast = "reginald";
+    string NameFull = mergeStrings(NameFirst, NameLast);
+
+    cout << NameFull;
+
+    double len = 10.0;
+    double area = square(len);
+    double volume = cube(len);
+
+    cout << area << endl << volume;
+    */
+
+    /*user defined functions
+    int num = 5;
+    sigma(num);
+    */
+
+    /*pseudo random num gen
+    srand(time(NULL));
+    int num = (rand() % 100) + 1;
+
+    cout << num;
+    */
+
+    /*nested loops
+    for(int i = 1; i <= 10; i++){
+        for(int j = 1; j <= 10; j++){
+            cout << j << ' ';
+        }
+        cout << endl;
+    }
+    */
+
+    /*for loops + continue
+    for(int i = 1; i <= 10; i++){
+        if(i == 1 ||i == 2 || i == 3 || i == 4 || i == 5 || i == 6){
+            continue;
+        }
+        cout << i << endl;
+    }
+    */
+
     /*break loop
     for(int i = 1; i < 10; i++){
         cout << i;
@@ -266,5 +322,39 @@ int main()
     std::cout << "Hello, Sigma 2!" << '\n';
     std::cout << "Hello, Sigma 3!";
     */
+    
     return 0;
+}
+
+/*
+void sigma(int num)
+{
+    cout << "sigma " << num << endl;
+}
+*/
+
+/*
+double square(double len){
+    double result = len * len;
+    return result;
+}
+
+double cube(double len){
+    double result_c = len * len * len;
+    return result_c;
+}
+*/
+
+/*
+string mergeStrings(string x, string y){
+    return x + " " + y;
+
+}
+*/
+
+void bakeSigma(){
+    cout << "here is ur sigma\n";
+}
+void bakeSigma(string alpha1){
+    //idk
 }
