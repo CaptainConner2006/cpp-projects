@@ -22,8 +22,26 @@ namespace sigma{
     }
     */
 
+/*
+void bakePizza(){
+    cout << "here is ur pizza\n";
+}
+
+void bakePizza(string topping1){
+    cout << "here is ur pizza with " << topping1 << endl;
+}
+
+void bakePizza(string topping1, string topping2){
+    cout << "here is ur pizza with " << topping1 << " and " << topping2 << endl;
+}
+*/
+
 int main()
 {
+    /*overloaded functions
+    bakePizza("sigma", "aerboivetbns");
+    */
+
     /*break loop
     for(int i = 1; i < 10; i++){
         cout << i;
@@ -125,7 +143,7 @@ int main()
     }
     */
 
-    /*ternary operators
+    /*ternary operators (condition ? true : false)
     int grade = 75;
 
     grade < 100 ? cout << "not 100" << endl : cout << "100" << endl;
