@@ -22,24 +22,62 @@ namespace sigma{
     }
     */
 
-/*
-void bakePizza(){
-    cout << "here is ur pizza\n";
-}
+//void sigma(int num);
 
-void bakePizza(string topping1){
-    cout << "here is ur pizza with " << topping1 << endl;
-}
+//double square(double len);
+//double cube(double len);
 
-void bakePizza(string topping1, string topping2){
-    cout << "here is ur pizza with " << topping1 << " and " << topping2 << endl;
-}
-*/
+//string mergeStrings(string x, string y);
+
+void bakeSigma();
 
 int main()
 {
-    /*overloaded functions
-    bakePizza("sigma", "aerboivetbns");
+    //overloaded functions
+    bakeSigma();
+    
+    /*return keywords
+    string NameFirst = "sigma";
+    string NameLast = "reginald";
+    string NameFull = mergeStrings(NameFirst, NameLast);
+
+    cout << NameFull;
+
+    double len = 10.0;
+    double area = square(len);
+    double volume = cube(len);
+
+    cout << area << endl << volume;
+    */
+
+    /*user defined functions
+    int num = 5;
+    sigma(num);
+    */
+
+    /*pseudo random num gen
+    srand(time(NULL));
+    int num = (rand() % 100) + 1;
+
+    cout << num;
+    */
+
+    /*nested loops
+    for(int i = 1; i <= 10; i++){
+        for(int j = 1; j <= 10; j++){
+            cout << j << ' ';
+        }
+        cout << endl;
+    }
+    */
+
+    /*for loops + continue
+    for(int i = 1; i <= 10; i++){
+        if(i == 1 ||i == 2 || i == 3 || i == 4 || i == 5 || i == 6){
+            continue;
+        }
+        cout << i << endl;
+    }
     */
 
     /*break loop
@@ -143,7 +181,7 @@ int main()
     }
     */
 
-    /*ternary operators (condition ? true : false)
+    /*ternary operators
     int grade = 75;
 
     grade < 100 ? cout << "not 100" << endl : cout << "100" << endl;
@@ -284,5 +322,39 @@ int main()
     std::cout << "Hello, Sigma 2!" << '\n';
     std::cout << "Hello, Sigma 3!";
     */
+    
     return 0;
+}
+
+/*
+void sigma(int num)
+{
+    cout << "sigma " << num << endl;
+}
+*/
+
+/*
+double square(double len){
+    double result = len * len;
+    return result;
+}
+
+double cube(double len){
+    double result_c = len * len * len;
+    return result_c;
+}
+*/
+
+/*
+string mergeStrings(string x, string y){
+    return x + " " + y;
+
+}
+*/
+
+void bakeSigma(){
+    cout << "here is ur sigma\n";
+}
+void bakeSigma(string alpha1){
+    //idk
 }
