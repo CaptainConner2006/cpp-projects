@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 using std::cout;
 using std::cin;
 using std::endl;
@@ -29,12 +30,235 @@ namespace sigma{
 
 //string mergeStrings(string x, string y);
 
-void bakeSigma();
+/*overloaded functions
+void bakeSigma(){
+    cout << "here is ur sigma";
+}
+void bakeSigma(string alpha1){
+    cout << "here is ur sigma " << alpha1;
+}
+void bakeSigma(string alpha1, string alpha2){
+    cout << "here is ur sigma " << alpha1 << " " << alpha2;
+}
+*/
+
+/*int num = 233;
+
+void printNum(){
+    int num = 245;
+    cout << ::num;
+}
+*/
+
+/*bank funcs
+double deposit(double balance){
+    double amount = 0;
+    cout << "enter amount: ";
+    cin >> amount;
+    if(amount <= 0){
+        cout << "invalid amount";
+        return 0;
+    } else {
+    cout << "new balance: $" << std::setprecision(2) << std::fixed << balance + amount;
+    }
+    return amount;
+}
+double withdraw(double balance){
+    double amount;
+    cout << "enter amount: ";
+    cin >> amount;
+    if(amount <= 0){
+        cout << "invalid amount";
+        return 0;
+    } else if(amount > balance){
+        cout << "insufficient funds";
+        return 0;
+    } else {
+    cout << "new balance: $" << std::setprecision(2) << std::fixed << balance - amount;
+    }
+    return amount;
+}
+*/
+
+/*
+double getTotal(double prices[], int size){
+    double total = 0;
+    for(int i = 0; i < size; i++){
+        total += prices[i];
+    }
+    return total;
+}
+*/
+
+/*
+int searchArray(string array[], int size, string element){
+    for(int i = 0; i < size; i++){
+        if(array[i] == element){
+            return i;
+        }
+    }
+    return -1;
+}
+*/
+
+/*important template for bubble sorting
+void sortArr(int arr[], int size){
+    int temp; //temporarily store value to push back(bubble)
+    for(int i = 0; i < size - 1; i++){
+        for(int j = 0; j < size - i - 1; j++){
+            if(arr[j] > arr[j + 1]){
+                //swapping values
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+*/
 
 int main()
 {
-    //overloaded functions
-    bakeSigma();
+    //fill array with user input
+    string arr[5];
+    int size = sizeof(arr)/sizeof(arr[0]);
+    string temp;
+
+    for(int i = 0; i < size; i++){
+        cout << "enter element (type q to quit) #" << i << ": ";
+        getline(cin, temp);
+        if(temp == "q"){
+            break;
+        }else{
+            arr[i] = temp;
+        }
+    }
+
+    cout << "elements: \n";
+
+    for(string element : arr){
+        cout << element << endl;
+    }
+
+
+
+    /*fill() function
+    int size = 99;
+    string arr[size];
+
+    fill(arr, arr + (size / 3), "sigma");
+    fill(arr + (size / 3), arr + (size / 3) * 2, "chad");
+    fill(arr + (size / 3) * 2, arr + (size), "cornelius");
+
+    for(string element : arr){
+        cout << element << " ";
+    }
+    */
+
+    /*bubble sorting (very useful!!!)
+    int arr[] = {10, 1, 9, 2, 8, 3, 7, 4, 6, 5};
+    int size = sizeof(arr)/sizeof(arr[0]);
+
+    sortArr(arr, size);
+
+    for(int element : arr){
+        cout << element << " ";
+    }
+    */
+
+    /*search array for an element (very important!!!)
+    string foods[] = {"apple", "banana", "kebab", "pizza"};
+    int size = sizeof(foods)/sizeof(foods[0]);
+    int index;
+    string food;
+
+    cout << "enter food: ";
+    cin >> food;
+
+    index = searchArray (foods, size, food);
+
+    if(index != -1){
+        cout << food << " is at index " << index;
+    }else{
+        cout << "food not in array";
+    }
+    */
+
+    /*pass array to func
+    double prices[] = {1.1, 2.2, 3.3, 4.4};
+    int size = sizeof(prices)/sizeof(double);
+    double total = getTotal(prices, size);
+
+    cout << total;
+    */
+
+    /*foreach loop (so simple so handy)
+    string names[] = {"sigma", "chad", "cornelius"};
+
+    for(string name : names){
+        cout << name << endl;
+    }
+    */
+
+    /*iterate over an array (too ez)
+    string names[] = {"sigma", "chad", "cornelius"};
+
+    for(int i = 0; i < sizeof(names)/sizeof(string); i++){
+        cout << names[i] << endl;
+    }
+    */
+
+    /*sizeof() operator
+    char grades[] = {'A', 'B', 'C', 'D', 'F', 'E'};
+    string names[] = {"sigma", "chad", "cornelius"};
+
+    cout << sizeof(grades)/sizeof(char);//sizeof array elements wowowow
+    */
+
+    /*arrays
+    string car[] = {"honda", "mercedes", "toyota", "ford"};
+    car[0] = "bmw";
+
+    cout << car[0];
+    */
+
+    /*banking brogram
+    double balance;
+    int choice;
+
+    do{
+        cout << "\nchoose\n1. deposit\n2. withdraw\n3. check balance\n4. quit\n";
+        cin >> choice;
+        std::cin.clear();
+        std::fflush(stdin);
+
+    switch(choice){
+        case 1:
+            balance += deposit(balance);
+            break;
+        case 2:
+            balance -= withdraw(balance);
+            break;
+        case 3:
+            cout << "balance: $" << std::setprecision(2) << std::fixed <<balance;
+            break;
+        case 4:
+            break;
+        default:
+            cout << "invalid choice";
+            break;
+    }
+    }while(choice != 4);
+    */
+    
+    /*local variable: inside funcs
+    //global variable: outside all funcs
+    printNum();
+    */
+
+    /*overloaded functions
+    bakeSigma("chad", "cornelius");
+    */
     
     /*return keywords
     string NameFirst = "sigma";
@@ -351,10 +575,3 @@ string mergeStrings(string x, string y){
 
 }
 */
-
-void bakeSigma(){
-    cout << "here is ur sigma\n";
-}
-void bakeSigma(string alpha1){
-    //idk
-}
