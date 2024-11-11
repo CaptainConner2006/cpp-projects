@@ -2,13 +2,15 @@
 #include <vector>
 #include <cmath>
 #include <iomanip>
+#include <ctime>
 using std::cout;
 using std::cin;
 using std::endl;
 using std::string;
 using std::getline;
+using namespace std;
 
-/*
+/*typedef
 typedef std::vector<std::pair<std::string,int>> pairlist_t;
 //typedef std::string text_t;
 //typedef int int_t;
@@ -17,7 +19,7 @@ using text_t = std::string;
 using int_t = int;
 */
 
-/*
+/*namespaces
 namespace sigma{
         int x = 2;
     }
@@ -80,7 +82,7 @@ double withdraw(double balance){
 }
 */
 
-/*
+/*pass array to func
 double getTotal(double prices[], int size){
     double total = 0;
     for(int i = 0; i < size; i++){
@@ -90,7 +92,7 @@ double getTotal(double prices[], int size){
 }
 */
 
-/*
+/*search array for element
 int searchArray(string array[], int size, string element){
     for(int i = 0; i < size; i++){
         if(array[i] == element){
@@ -117,9 +119,296 @@ void sortArr(int arr[], int size){
 }
 */
 
+/*pass by reference
+void swap(string &cup1, string &cup2){
+    string temp = cup1;
+    cup1 = cup2;
+    cup2 = temp;
+}
+*/
+
+/*const parameters
+void printInfo(const string name, const int age){
+    cout << name << endl;
+    cout << age << endl;
+}
+*/
+
+/*luhn algorithm
+int getDigit(const int num){
+    return num % 10 + (num / 10 % 10);
+}
+int sumOddDigits(const string cardNum){
+    int sum = 0;
+
+    for(int i = cardNum.size() - 1; i >= 0; i-=2){
+        sum += cardNum[i] - '0';
+    }
+
+    return sum;
+}
+int sumEvenDigits(const string cardNum){
+    int sum = 0;
+
+    for(int i = cardNum.size() - 2; i >= 0; i-=2){
+        sum += getDigit((cardNum[i] - '0') * 2);
+    }
+
+    return sum;
+}
+*/
+
+/*tic tac toe functions
+void drawBoard(char *spaces){
+    cout << "     |     |     " << endl;
+    cout << "  " << spaces [0] << "  |  " << spaces [1] << "  |  " << spaces [2] << "  " << endl;
+    cout << "_____|_____|_____" << endl;
+    cout << "     |     |     " << endl;
+    cout << "  " << spaces [3] << "  |  " << spaces [4] << "  |  " << spaces [5] << "  " << endl;
+    cout << "_____|_____|_____" << endl;
+    cout << "     |     |     " << endl;
+    cout << "  " << spaces [6] << "  |  " << spaces [7] << "  |  " << spaces [8] << "  " << endl;
+    cout << "     |     |     " << endl;
+    cout << endl;
+}
+void playerMove(char *spaces, char player){
+    int number;
+    do{
+        cout << "enter spot to place marker(1-9)\n";
+        cin >> number;
+        number--;
+        if(spaces[number] == ' '){
+            spaces[number] = player;
+            break;
+        }
+    }while(!number > 0 || !number < 8);
+}
+void computerMove(char *spaces, char computer){
+    int number;
+    srand(time(0));
+
+    while(true){
+        number = rand() % 9;
+        if(spaces[number] == ' '){
+            spaces[number] = computer;
+            break;
+        }
+    }
+}
+bool checkWinner(char *spaces, char player, char computer){
+    if(spaces[0] != ' ' && spaces[0] == spaces[1] && spaces[1] == spaces[2]){
+        spaces[0] == player ? cout << "u win\n" : cout << "u lose\n";
+    }else if(spaces[3] != ' ' && spaces[3] == spaces[4] && spaces[4] == spaces[5]){
+        spaces[3] == player ? cout << "u win\n" : cout << "u lose\n";
+    }else if(spaces[6] != ' ' && spaces[6] == spaces[7] && spaces[7] == spaces[8]){
+        spaces[6] == player ? cout << "u win\n" : cout << "u lose\n";
+    }else if(spaces[0] != ' ' && spaces[0] == spaces[3] && spaces[3] == spaces[6]){
+        spaces[0] == player ? cout << "u win\n" : cout << "u lose\n";
+    }else if(spaces[1] != ' ' && spaces[1] == spaces[4] && spaces[4] == spaces[7]){
+        spaces[1] == player ? cout << "u win\n" : cout << "u lose\n";
+    }else if(spaces[2] != ' ' && spaces[2] == spaces[5] && spaces[5] == spaces[8]){
+        spaces[2] == player ? cout << "u win\n" : cout << "u lose\n";
+    }else if(spaces[0] != ' ' && spaces[0] == spaces[4] && spaces[4] == spaces[8]){
+        spaces[0] == player ? cout << "u win\n" : cout << "u lose\n";
+    }else if(spaces[2] != ' ' && spaces[2] == spaces[4] && spaces[4] == spaces[6]){
+        spaces[2] == player ? cout << "u win\n" : cout << "u lose\n";
+    }else{
+        return false;
+    }
+
+    return true;
+}
+bool checkTie(char *spaces){
+    for(int i = 0; i < 9; i++){
+        if(spaces[i] == ' '){
+            return false;
+        }
+    }
+    cout << "tie\n";
+    return true;
+}
+*/
+
 int main()
 {
-    //fill array with user input
+    //dynamic memory == memory allocated after program if you dont know how much memory ull need
+    /*example 1
+    int *pNum = NULL;
+
+    pNum = new int;
+
+    *pNum = 21;
+
+    cout << "address\n" << pNum << endl;
+    cout << "value\n" << *pNum << endl;
+
+    delete pNum;
+    */
+    /*example 2
+    char *pGrades = NULL;
+    int size;
+
+    cout << "how many grades to enter: \n";
+    cin >> size;
+
+    pGrades = new char[size];
+
+    for(int i = 0; i < size; i++){
+        cout << "enter grade number " << i + 1 << ": ";
+        cin >> pGrades[i];
+    }
+
+    for(int i = 0; i < size; i++){
+        cout << pGrades[i] << endl;
+    }
+    delete[] pGrades;
+    */
+
+    /*tic tac toe
+    char spaces[9] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', };
+    char player = 'X';
+    char computer = 'O';
+    bool running = true;
+
+    drawBoard(spaces);
+
+    while(running){
+        playerMove(spaces, player);
+        drawBoard(spaces);
+        if(checkWinner(spaces, player, computer)){
+            running = false;
+            break;
+        }else if(checkTie(spaces)){
+            running = false;
+            break;
+        }
+
+        computerMove(spaces, computer);
+        drawBoard(spaces);
+        if(checkWinner(spaces, player, computer)){
+            running = false;
+            break;
+        }else if(checkTie(spaces)){
+            running = false;
+            break;
+        }
+    }
+    cout << "thx for playing";
+    */
+
+    /*null pointers (careful with these)
+    int *ptr = nullptr;
+    int x = 123;
+
+    //ptr = &x;
+
+    if(ptr == nullptr){
+        cout << "no address found in ptr" << endl;
+        cout << *ptr;
+    }else{
+        cout << "assigned address" << endl;
+    }
+    */
+
+    /*pointers(super cool yey)
+    string pizzas[5] = {"pizza1", "pizza2", "pizza3", "pizza4", "pizza5"};
+    string *pizzaPtr = pizzas;
+
+    cout << *pizzaPtr << endl;
+    */
+
+    //credit card validator program
+    /*luhn algorithm
+    1. double every second digit from right to left. if doubled digit is 2 digits big, split them (12 = 1 2)
+    2. add all single digits from step 1
+    3. add all odd numbered digits from right to left
+    4. sum results from steps 2 & 3
+    5. if step 4 divible by 10, # is valid
+    
+
+    string cardNum;
+    int result = 0;
+
+    cout << "enter cardnumber\n";
+    cin >> cardNum;
+
+    result = sumEvenDigits(cardNum) + sumOddDigits(cardNum);
+
+    if(result % 10 == 0){
+        cout << cardNum << " is valid\n";
+    }else{
+        cout << " cardNum is not valid\n";
+    }
+    */
+
+    /*const parameters (const makes value read-only)
+    string name = "Sigma";
+    int age = 18;
+
+    printInfo(name, age);
+    */
+
+    /*pass by reference
+    string cup1 = "white monster";
+    string cup2 = "also white monster";
+
+    swap(cup1, cup2);
+
+
+    cout << "cup1 " << cup1 << endl;
+    cout << "cup2 " << cup2 << endl;
+    */
+
+    /*memory addresses
+    string name = "Sigma";
+    int age = 18;
+    bool student = true;
+
+    cout << &name << endl;
+    cout << &age << endl;
+    cout << &student << endl;
+    */
+
+    /*multidimensional arrays (wtf is dit)
+    //array [rows][columns]
+    string foods[][3] = {
+    {"vanille ijs", "banaan ijs", "straciatella ijs"},
+    {"fufu", "roti", "kip en rijst"},
+    {"sushi", "noodles", "dumplings"}};
+
+    int rows = sizeof(foods)/sizeof(foods[0]);
+    int columns = sizeof(foods[0])/sizeof(foods[0][0]);
+
+    for(int i = 0; i < rows; i++){
+        for(int j = 0; j < columns; j++){
+            cout << foods[i][j] << endl;
+        }
+        cout << endl;
+    }
+    */
+
+    /*multidimensional arrays pt2
+    cout << "ijs smaken:" << endl;
+    for(string food : foods[0]){
+        cout << food << endl;
+    }
+
+    cout << "\n";
+
+    cout << "suri foodie:" << endl;
+    for(string food : foods[1]){
+        cout << food << endl;
+    }
+
+    cout << endl;
+
+    cout << "jappie foods" << endl;
+    for(string food : foods[2]){
+        cout << food << endl;
+    }
+    */
+
+    /*fill array with user input
     string arr[5];
     int size = sizeof(arr)/sizeof(arr[0]);
     string temp;
@@ -139,8 +428,7 @@ int main()
     for(string element : arr){
         cout << element << endl;
     }
-
-
+    */
 
     /*fill() function
     int size = 99;
