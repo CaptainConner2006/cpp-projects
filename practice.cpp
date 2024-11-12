@@ -255,33 +255,141 @@ struct student{
 };
 */
 
+/*pass structs as argument
 struct Car{
     string name;
     int year;
+    string color;
 };
 
 void printCar(Car &car){
-    cout << &car << endl;
+	cout << &car << endl;
     cout << car.name << endl;
     cout << car.year << endl;
+    cout << car.color << endl << endl;
 }
-void ageCar(car &car, int year){
-    car.year = year;
+void paintCar(Car &car, string color){
+	car.color = color;
 }
+*/
+
+/*enumerator
+enum Day {
+	monday = 0,
+	tuesday = 1,
+	wednesday = 2
+};
+*/
+
+/*oop classes + methods
+class Sigma{
+	public:
+		string name;
+		int aura;
+		
+		void edge(){
+			cout << "this person is edging\n";
+		}
+		void drinkBeer(){
+			cout << "get me another beer!\n";
+		}
+		void grind(){
+			cout << "on the grind all day every day\n";
+		}
+		void song(){
+			cout << "sigma sigma on the wall, who's the skibidiest of them all? its you yes its you!";
+		}
+};
+*/
+
+class Car{
+	public:
+		string make;
+		string model;
+		int year;
+		string color;
+		
+		void drive(){
+			cout << "i drive.";
+		}
+		void drive2(){
+			cout << "i drive..";
+		}
+		void brake(){
+			cout << "hou je bek chris";
+		}
+};
 
 int main()
 {
-    //pass struct as argument
+	//OOP oooo yeahhhhhhh
+	Car car1;
+	Car car2;
+	
+	car1.make = "ryan";
+	car1.model = "gosling";
+	car1.year = 2011;
+	car1.color = "theres something inside you, that i cant explain";
+	
+	car2.make = "ryan2";
+	car2.model = "gosling2";
+	car2.year = 2012;
+	car2.color = "theres something inside you, that i cant explain2";
+	
+	cout << car1.make << endl;
+	cout << car1.model << endl;
+	cout << car1.year << endl;
+	cout << car1.color << endl;
+	
+	car1.drive();
+	car1.drive2();
+	car1.brake();
+	
+	/*
+	Sigma alpha1;
+	
+	alpha1.name = "chad";
+	alpha1.aura = 1000000;
+	
+	cout << "name: " << alpha1.name << endl;
+	cout << "aura level: " << alpha1.aura << endl;
+	
+	alpha1.song();
+	*/
+	
+	/*enumerations (i like this alot)
+	Day today = tuesday;
+	
+	switch(today){
+		case monday: cout << "today is monday" << endl;
+		break;
+		case tuesday: cout << "today is tuesday" << endl;
+		break;
+		case wednesday: cout << "today is wednesday" << endl;
+		break;
+	}
+	*/
+	
+    /*pass struct as argument
     Car car1;
     Car car2;
 
     car1.name = "kitten";
     car1.year = 1999;
+    car1.color = "black";
+    
     car2.name = "smitten";
     car2.year = 2999;
-
+    car2.color = "white";
+    
+    paintCar(car1, "blue");
+    paintCar(car2, "red");
+    
+    cout << &car1 << endl;
     printCar(car1);
+    cout << &car2 << endl;
     printCar(car2);
+    */
 
     /*struct
     student student1;
