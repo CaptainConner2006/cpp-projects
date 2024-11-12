@@ -3,12 +3,8 @@
 #include <cmath>
 #include <iomanip>
 #include <ctime>
-using std::cout;
-using std::cin;
-using std::endl;
-using std::string;
-using std::getline;
 using namespace std;
+//template <typename T , typename U>
 
 /*typedef
 typedef std::vector<std::pair<std::string,int>> pairlist_t;
@@ -229,8 +225,94 @@ bool checkTie(char *spaces){
 }
 */
 
+/*recursion
+void walk(int steps){
+    if(steps > 0){
+        cout << "u take a step\n";
+        walk(steps - 1); //recursive approach
+    }
+}
+
+int factorial(int num){
+    if(num > 1){
+        return num * factorial(num - 1);
+    }else{
+        return 1;
+    }
+}
+*/
+
+/*function template
+auto max(T x, U y){
+    return (x > y) ? x : y;
+}
+*/
+/*struct outside main
+struct student{
+    string name;
+    double gpa;
+    bool enrolled;
+};
+*/
+
+struct Car{
+    string name;
+    int year;
+};
+
+void printCar(Car &car){
+    cout << &car << endl;
+    cout << car.name << endl;
+    cout << car.year << endl;
+}
+void ageCar(car &car, int year){
+    car.year = year;
+}
+
 int main()
 {
+    //pass struct as argument
+    Car car1;
+    Car car2;
+
+    car1.name = "kitten";
+    car1.year = 1999;
+    car2.name = "smitten";
+    car2.year = 2999;
+
+    printCar(car1);
+    printCar(car2);
+
+    /*struct
+    student student1;
+    student1.name = "name";
+    student1.gpa = 4.0;
+    student1.enrolled = true;
+
+    student student2;
+    student2.name = "name2";
+    student2.gpa = 5.0;
+    student2.enrolled = false;
+
+    cout << student1.name << endl;
+    cout << student1.gpa << endl;
+    cout << student1.enrolled << endl;
+    
+    cout << student2.name << endl;
+    cout << student2.gpa << endl;
+    cout << student2.enrolled << endl;
+    */
+
+    /*function templates (wow so efficient handy and cool)
+    cout << max(1, 2.1) << endl;
+    */
+
+    /*recursion (iterative vs recursive) helpful with sorting functions
+    cout << factorial(10);
+
+    walk(100);
+    */
+
     //dynamic memory == memory allocated after program if you dont know how much memory ull need
     /*example 1
     int *pNum = NULL;
