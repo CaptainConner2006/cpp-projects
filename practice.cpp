@@ -302,6 +302,7 @@ class Sigma{
 };
 */
 
+/*oop again
 class Car{
 	public:
 		string make;
@@ -319,10 +320,132 @@ class Car{
 			cout << "hou je bek chris";
 		}
 };
+*/
+
+/*constructor so cool
+class Car{
+	public:
+		string make;
+		string model;
+		int year;
+		string color;
+		
+	Car(string make, string model, int year, string color){
+		this->make = make;
+		this->model = model;
+		this->year = year;
+		this->color = color;
+	}
+};
+*/
+
+/*overloaded constructorssss
+class Pizza{
+	public:
+		string topping1;
+		string topping2;
+		string topping3;
+		
+		Pizza(){
+			
+		}
+		Pizza(string topping1){
+			this->topping1 = topping1; 
+		}
+		Pizza(string topping1, string topping2){
+			this->topping1 = topping1;
+			this->topping2 = topping2;
+		}
+		Pizza(string topping1, string topping2, string topping3){
+			this->topping1 = topping1;
+			this->topping2 = topping2;
+			this->topping3 = topping3;
+		}
+};
+*/
+
+/*getter & setter function
+class Sigma{
+	private:
+		int aura = 100;
+	public:
+		Sigma(int aura){
+			setAura(aura);
+		}
+		void setAura(int aura){
+			this->aura = aura;
+		}
+		int getAura(int aura){
+			return aura;
+		}
+};
+*/
+
+/*inheritance parent/child classes, attributes & methods
+class Shape{
+	public:
+		double area;
+		double volume;
+};
+class Cube : public Shape{
+	public:
+		double side;
+		Cube(double side){
+			this->side = side;
+			this->area = side * side * 6;
+			this->volume = pow(side, 3);
+		}
+};
+class Sphere : public Shape{
+	public:
+		double radius;
+		Sphere(double radius){
+			this->radius = radius;
+			this->area = 4 * 3.14159 * pow(radius, 2);
+			this->volume = (4/3.0) * 3.14519 * pow(radius, 3);
+		}
+};
+*/
 
 int main()
 {
-	//OOP oooo yeahhhhhhh
+	
+	
+	/*inheritance = child class recieving attributes and methods from parent classes
+	double inputradius;
+	cout << "enter radius: ";
+	cin >> inputradius;
+	
+	Cube cube(10);
+	Sphere sphere(inputradius);
+	
+	cout << "area: " << sphere.area << "cm" << endl;
+	cout << "volume: " << sphere.volume << "cm" << endl;
+	*/
+	
+	/*getters & setters
+	Sigma sigma(0);
+	
+	cout << sigma.getAura(1000);
+	*/
+	
+	/*overloaded constructor
+	Pizza pizza1("pepperoni");
+	Pizza pizza2("pepperoni", "cheese");
+	Pizza pizza3("pep", "ananas", "billen");
+	Pizza pizza4;
+	*/
+	
+	/*constructors (so handy so much time save)
+	Car car1("gosling", "ryan", 1999, "blue");
+	
+	cout << car1.make << endl;
+	cout << car1.model << endl;
+	cout << car1.year << endl;
+	cout << car1.color << endl;
+	*/
+	
+	/*OOP oooo yeahhhhhhh
 	Car car1;
 	Car car2;
 	
@@ -344,6 +467,7 @@ int main()
 	car1.drive();
 	car1.drive2();
 	car1.brake();
+	*/
 	
 	/*
 	Sigma alpha1;
