@@ -70,8 +70,40 @@ void insertAfter(node* previous, string newVal){
 	previous->nex = newNode;
 }
 */
+/*another linked list
+struct node {
+	int data;
+	struct node *next;
+};
+*/
 
-int main() {//making datastructures to get better at c++ :3 (and also for copy-paste templates
+int main() {
+	//making datastructures to get better at c++ :3 (and also for copy-paste templates
+	
+	
+	/*another linked list
+	struct node *one = NULL;
+	struct node *two = NULL;
+	struct node *three = NULL;
+	
+	one = new node();
+	two = new node();
+	three = new node();
+	
+	one->data = 11;
+	two->data = 22;
+	three->data = 33;
+	
+	one->next = two;
+	two->next = three;
+	three->next = NULL;
+	
+	while(one != NULL){
+		cout << one->data << endl;
+		one = one->next;
+	}
+	*/
+
 	/*linked lists
 	node* head = new node();
 	node* second = new node();
