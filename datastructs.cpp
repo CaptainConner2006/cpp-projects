@@ -78,8 +78,28 @@ struct node {
 */
 
 int main() {
-	//making datastructures to get better at c++ :3 (and also for copy-paste templates
+	//making datastructures to get better at c++ :3 (and also for copy-paste templates)
 	
+	/*dynamic array
+	int cap;
+	cout << "how many tickets: ";
+	cin >> cap;
+	
+	//int tickets[cap] = {55, 32};//cap = 3, size = 2
+	int* tickets = new int[cap];
+	
+	for(int i = 0; i < cap; i++){
+		cout << "enter ticket number: ";
+		cin >> tickets[i];
+	}
+	
+	for(int i = 0; i < cap; i++){
+		cout << tickets[i] << endl;
+	}
+	
+	delete[] tickets;
+	tickets = nullptr;
+	*/
 	
 	/*another linked list
 	struct node *one = NULL;
