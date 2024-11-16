@@ -1,3 +1,4 @@
+//ampersand (pointers 'n stuff)
 #include <stdio.h>
 
 void addition(int a, int b, int *target){
