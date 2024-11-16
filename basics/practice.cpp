@@ -99,7 +99,7 @@ int searchArray(string array[], int size, string element){
 }
 */
 
-/*important template for bubble sorting
+//important template for bubble sorting
 void sortArr(int arr[], int size){
     int temp; //temporarily store value to push back(bubble)
     for(int i = 0; i < size - 1; i++){
@@ -113,7 +113,7 @@ void sortArr(int arr[], int size){
         }
     }
 }
-*/
+//
 
 /*pass by reference
 void swap(string &cup1, string &cup2){
@@ -757,16 +757,17 @@ int main()
     }
     */
 
-    /*bubble sorting (very useful!!!)
+    //bubble sorting (very useful!!!)
     int arr[] = {10, 1, 9, 2, 8, 3, 7, 4, 6, 5};
     int size = sizeof(arr)/sizeof(arr[0]);
 
     sortArr(arr, size);
 
+    cout << "sorted array:\n";
     for(int element : arr){
         cout << element << " ";
     }
-    */
+    //
 
     /*search array for an element (very important!!!)
     string foods[] = {"apple", "banana", "kebab", "pizza"};

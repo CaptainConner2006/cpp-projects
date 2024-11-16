@@ -50,6 +50,7 @@ int interpolationSearch(int arr[], int low, int high, int x){
 
 int main(void){
 	//sorting / searching algorithms :D
+	//merge sort
 	
 	
 	/*interpolation search algorithm
