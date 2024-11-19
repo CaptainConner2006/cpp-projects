@@ -80,7 +80,7 @@ struct node {
 int main() {
 	//making datastructures to get better at c++ :3 (and also for copy-paste templates)
 	
-	/*dynamic array
+	//dynamic array
 	int cap;
 	cout << "how many tickets: ";
 	cin >> cap;

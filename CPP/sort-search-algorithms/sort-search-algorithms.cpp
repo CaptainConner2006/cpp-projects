@@ -1,4 +1,4 @@
-#include <iostream>
+ #include <iostream>
 #include <vector>
 #include <bits/stdc++.h>
 using namespace std;
@@ -48,12 +48,79 @@ int interpolationSearch(int arr[], int low, int high, int x){
 }
 */
 
+/*mergesort
+void merge(vector<int>& arr, int left, int mid, int right){
+	int n1 = mid - left + 1;
+	int n2 = right - mid;
+	
+	vector<int> L(n1), R(n2);
+	
+	for(int i = 0; i < n1; i++){
+		L[i] = arr[left + i];
+		for(int j = 0; j < n2; j++){
+			R[j] = arr[mid + 1 + j];
+		}
+	}
+	int i = 0, j = 0;
+	int k = left;
+	
+	while(i < n1 && j < n2){
+		if(L[i] <= R[j]){
+			arr[k] = L[i];
+			i++;
+		}else{
+			arr[k] = R[j];
+			j++;
+		}
+		k++;
+	}
+	while(i < n1){
+		arr[k] = L[i];
+		i++;
+		k++;
+	}
+	while(j < n2){
+		arr[k] = R[j];
+		j++;
+		k++;
+	}
+}
+
+void mergeSort(vector<int>& arr, int left, int right){
+	if(left >= right){
+		return;
+	}
+	int mid = left + (right - left) / 2;
+	mergeSort(arr, left, mid);
+	mergeSort(arr, mid + 1, right);
+	merge(arr, left, mid, right);
+}
+void printVector(vector<int>& arr){
+	for(int i = 0; i < arr.size(); i++){
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+*/
+
+
 int main(void){
 	//sorting / searching algorithms :D
-	//merge sort
 	
 	
-	/*interpolation search algorithm
+	
+	/*merge sort
+	vector<int> arr = {42,63,62,13,85,93,28,20,58,10,1,59,2};
+	int n = arr.size();
+	
+	printVector(arr);
+	
+	mergeSort(arr, 0 , n - 1);
+	
+	printVector(arr);
+	*/
+	
+	/*nterpolation search algorithm
 	int arr[] = {10, 12, 13, 16, 18, 19, 20, 21, 22, 23, 24, 33, 35, 42, 47 };
 	int n = sizeof(arr) / sizeof(arr[0]);
 	int x = 13;
