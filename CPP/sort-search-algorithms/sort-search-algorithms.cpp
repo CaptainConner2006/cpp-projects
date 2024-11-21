@@ -48,7 +48,7 @@ int interpolationSearch(int arr[], int low, int high, int x){
 }
 */
 
-/*mergesort
+//mergesort
 void merge(vector<int>& arr, int left, int mid, int right){
 	int n1 = mid - left + 1;
 	int n2 = right - mid;
@@ -101,7 +101,7 @@ void printVector(vector<int>& arr){
 	}
 	cout << endl;
 }
-*/
+//
 
 
 int main(void){
@@ -109,7 +109,7 @@ int main(void){
 	
 	
 	
-	/*merge sort
+	//merge sort
 	vector<int> arr = {42,63,62,13,85,93,28,20,58,10,1,59,2};
 	int n = arr.size();
 	
@@ -118,7 +118,7 @@ int main(void){
 	mergeSort(arr, 0 , n - 1);
 	
 	printVector(arr);
-	*/
+	//
 	
 	/*nterpolation search algorithm
 	int arr[] = {10, 12, 13, 16, 18, 19, 20, 21, 22, 23, 24, 33, 35, 42, 47 };
