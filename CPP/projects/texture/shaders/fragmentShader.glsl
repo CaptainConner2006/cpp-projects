@@ -1,15 +1,11 @@
 #version 330 core
 out vec4 FragColor;
 
-in vec3 ourColor;
-in vec2 TexCoord;
+in vec2 TexCoord2; // Chillguy texture coordinates
 
-uniform sampler2D texture1;
-uniform sampler2D texture2;
+uniform sampler2D texture2; // Chillguy texture
 
 void main()
 {
-    vec4 tex1 = texture(texture1, TexCoord);
-    vec4 tex2 = texture(texture2, TexCoord);
-    FragColor = mix(tex1, tex2, 0.5); // Blend the two textures
+    FragColor = texture(texture2, TexCoord2); // Only render Chillguy texture
 }
