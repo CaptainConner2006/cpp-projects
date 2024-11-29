@@ -79,20 +79,26 @@ int main()
     glGenBuffers(1, &EBO);
 
     glBindVertexArray(VAO);
+
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-    // position attrib
+    // Position attribute
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *)0);
     glEnableVertexAttribArray(0);
-    // color attrib
+
+    // Color attribute
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
-    // texture coord attrib
+
+    // Texture coord attribute
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void *)(6 * sizeof(float)));
     glEnableVertexAttribArray(2);
+
+    glBindVertexArray(0); // Unbind VAO
 
     // load/create texture
     unsigned int texture1, texture2;
@@ -112,9 +118,6 @@ int main()
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
-    }
-    if (data)
-    {
         std::cout << "Texture loaded successfully! Width: " << width << ", Height: " << height << ", Channels: " << nrChannels << std::endl;
     }
     else
@@ -125,6 +128,9 @@ int main()
     stbi_image_free(data);
 
     // texture 2 time!
+    // Blending: Enable and ensure the opacity works
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glGenTextures(1, &texture2);
     glBindTexture(GL_TEXTURE_2D, texture2);
     // wrapping parameters
@@ -139,9 +145,6 @@ int main()
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
-    }
-    if (data)
-    {
         std::cout << "Texture loaded successfully! Width: " << width << ", Height: " << height << ", Channels: " << nrChannels << std::endl;
     }
     else
@@ -165,14 +168,12 @@ int main()
         glClearColor(1.0f, 0.0f, 0.0f, 1.0f); // Red background
         glClear(GL_COLOR_BUFFER_BIT);
 
-        // bind textures
+        ourShader.use();
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture1);
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, texture2);
 
-        // render loop drawing code
-        ourShader.use();
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
