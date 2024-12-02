@@ -102,6 +102,13 @@ int main()
     glBindVertexArray(0); // Unbind VAO
 
     // load/create texture
+
+    unsigned int texture2;
+    int width, height,  nrChannels;
+    unsigned char *data;
+    stbi_set_flip_vertically_on_load(true);
+
+    /*
     unsigned int texture1, texture2;
     glGenTextures(1, &texture1);
     glBindTexture(GL_TEXTURE_2D, texture1);
@@ -127,6 +134,7 @@ int main()
     }
 
     stbi_image_free(data);
+    */
 
     // texture 2 time!
     // Blending: Enable and ensure the opacity works
@@ -141,7 +149,7 @@ int main()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     // load img + create texture & generate mipmaps
-    data = stbi_load("textures/chillguy.jpg", &width, &height, &nrChannels, 0);
+    data = stbi_load("textures/twoguys.jpg", &width, &height, &nrChannels, 0);
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
