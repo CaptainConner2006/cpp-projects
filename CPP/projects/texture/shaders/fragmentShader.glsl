@@ -1,11 +1,12 @@
 #version 330 core
 out vec4 FragColor;
 
-in vec2 TexCoord2; // Chillguy texture coordinates
+in vec3 ourColor;
+in vec2 TexCoord;
 
-uniform sampler2D texture2; // Chillguy texture
+uniform sampler2D texture2;
 
 void main()
 {
-    FragColor = texture(texture2, TexCoord2); // Only render Chillguy texture
+    FragColor = texture(texture2, TexCoord);
 }

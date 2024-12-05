@@ -1,6 +1,9 @@
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 #include <classes/shader.h>
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb/stb_image.h"
@@ -23,7 +26,7 @@ void processInput(GLFWwindow *window)
 
 // settings
 const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 400;
+const unsigned int SCR_HEIGHT = 800;
 
 int main()
 {
@@ -70,6 +73,12 @@ int main()
         -0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f   // top left
     };
 
+    glm::vec4 vec(1.0f, 0.0f, 0.0f, 1.0f);
+    glm::mat4 trans = glm::mat4(1.0f);
+    trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
+    trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
+    std::cout << vec.x << vec.y << vec.z << "\n";
+
     unsigned int indices[] = {
         0, 1, 3, // first triangle
         1, 2, 3  // second triangle
@@ -104,8 +113,10 @@ int main()
     // load/create texture
 
     unsigned int texture2;
-    int width, height,  nrChannels;
+    int width, height, nrChannels;
     unsigned char *data;
+    unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
+    glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
     stbi_set_flip_vertically_on_load(true);
 
     /*
@@ -149,7 +160,7 @@ int main()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     // load img + create texture & generate mipmaps
-    data = stbi_load("textures/twoguys.jpg", &width, &height, &nrChannels, 0);
+    data = stbi_load("textures/chillguy.jpg", &width, &height, &nrChannels, 0);
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
@@ -177,12 +188,21 @@ int main()
         glClearColor(1.0f, 0.0f, 0.0f, 1.0f); // Red background
         glClear(GL_COLOR_BUFFER_BIT);
 
+        // Compute rotation based on time
+        float timeValue = glfwGetTime();
+        float angle = glm::radians(timeValue * 50.0f); // Rotate 50 degrees per second
+
+        glm::mat4 trans = glm::mat4(1.0f);
+        trans = glm::rotate(trans, angle, glm::vec3(0.0f, 0.0f, 1.0f));
+        trans = glm::scale(trans, glm::vec3(0.5f, 0.5f, 0.5f)); // Optional: Keep scaling if needed
+
+        // Use shader and update the transform uniform
         ourShader.use();
+        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
 
         // Bind texture2 (Chillguy)
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture2);
-        glUniform1i(glGetUniformLocation(ourShader.ID, "texture2"), 0);
 
         // Draw the quad
         glBindVertexArray(VAO);
